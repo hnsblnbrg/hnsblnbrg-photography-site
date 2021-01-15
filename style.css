@@ -1,0 +1,260 @@
+/* Fonts */
+
+@font-face {
+  font-family: "Helvetica Medium";
+  src: url("fonts/HelveticaNeue\ Medium.ttf");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Helvetica Thin";
+  src: url("fonts/HelveticaNeue\ Thin.ttf");
+  font-weight: normal;
+  font-style: normal;
+}
+
+/* Miscellaneous */
+
+input,
+textarea,
+button,
+select,
+a {
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+html {
+  overflow: scroll;
+}
+::-webkit-scrollbar {
+  width: 0px;
+  background: transparent;
+}
+
+body {
+  background-color: #000000;
+}
+
+h1 {
+  font-family: "Helvetica Medium";
+  font-size: 22px;
+  color: #ffffff;
+  text-align: left;
+  margin-left: 0.5rem;
+}
+
+.gallery-button {
+  float: right;
+  margin-top: -2.3rem;
+  margin-right: 0.5rem;
+}
+
+.gallery-header {
+  display: inline-block;
+  margin-top: -0.5rem;
+}
+
+/* Text Scrambler */
+
+.scramble-container {
+  height: 100%;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  margin-top: 21rem;
+}
+
+.text {
+  font-family: "Helvetica Thin";
+  font-weight: 100;
+  font-size: 22px;
+  color: #ffffff;
+  position: relative;
+}
+.dud {
+  color: #ffffff;
+}
+
+/* Preloader code */
+
+.loader-background {
+  position: fixed;
+  z-index: 999999;
+  background: #000000;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+.pulse {
+  height: 100px;
+  width: 200px;
+  overflow: hidden;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+}
+.pulse:after {
+  content: "";
+  display: block;
+  background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 200px 100px" enable-background="new 0 0 200px 100px" xml:space="preserve"><polyline fill="none" stroke-width="3px" stroke="white" points="2.4,58.7 70.8,58.7 76.1,46.2 81.1,58.7 89.9,58.7 93.8,66.5 102.8,22.7 110.6,78.7 115.3,58.7 126.4,58.7 134.4,54.7 142.4,58.7 197.8,58.7 "/></svg>')
+    0 0 no-repeat;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  -webkit-animation: 2s pulse linear infinite;
+  -moz-animation: 2s pulse linear infinite;
+  -o-animation: 2s pulse linear infinite;
+  animation: 2s pulse linear infinite;
+  clip: rect(0, 0, 100px, 0);
+}
+.pulse:before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  left: 2px;
+  right: 2px;
+  bottom: 0;
+  top: 16px;
+  margin: auto;
+  height: 3px;
+}
+
+@-webkit-keyframes pulse {
+  0% {
+    clip: rect(0, 0, 100px, 0);
+    opacity: 0.4;
+  }
+  4% {
+    clip: rect(0, 66.66667px, 100px, 0);
+    opacity: 0.6;
+  }
+  15% {
+    clip: rect(0, 133.33333px, 100px, 0);
+    opacity: 0.8;
+  }
+  20% {
+    clip: rect(0, 300px, 100px, 0);
+    opacity: 1;
+  }
+
+  80% {
+    clip: rect(0, 300px, 100px, 0);
+    opacity: 0;
+  }
+
+  90% {
+    clip: rect(0, 300px, 100px, 0);
+    opacity: 0;
+  }
+
+  100% {
+    clip: rect(0, 300px, 100px, 0);
+    opacity: 0;
+  }
+}
+@keyframes pulse {
+  0% {
+    clip: rect(0, 0, 100px, 0);
+  }
+  4% {
+    clip: rect(0, 66.66667px, 100px, 0);
+  }
+  15% {
+    clip: rect(0, 133.33333px, 100px, 0);
+  }
+  20% {
+    clip: rect(0, 300px, 100px, 0);
+    opacity: 1;
+  }
+
+  80% {
+    clip: rect(0, 300px, 100px, 0);
+    opacity: 0;
+  }
+
+  90% {
+    opacity: 0;
+  }
+
+  100% {
+    clip: rect(0, 300px, 100px, 0);
+    opacity: 0;
+  }
+}
+
+/* BnW to color hover */
+
+img {
+  -webkit-filter: grayscale(100%);
+  filter: grayscale(100%);
+  transition: filter 0.6s ease-out;
+}
+
+img:hover {
+  transition: filter 0.6s ease-in-out;
+  -webkit-filter: grayscale(0%); /* Ch 23+, Saf 6.0+, BB 10.0+ */
+  filter: grayscale(0%); /* FF 35+ */
+}
+
+/* Gallery */
+
+* {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+.row {
+  display: inline-block;
+  align-items: center;
+  padding-top: 2rem;
+  padding-left: 2.5rem;
+}
+
+.image-hr {
+  width: 80%;
+}
+
+.column {
+  float: left;
+  padding: 1.5rem;
+  width: 25%;
+}
+
+/* Clear floats after image containers */
+
+.row::after {
+  content: "";
+  clear: both;
+  display: flex;
+  justify-content: space-between;
+}
+
+/* Media queries */
+
+@media screen and (max-width: 480px) {
+  .scramble-container {
+    margin-top: 21rem;
+  }
+
+  .column {
+    width: 50%;
+    padding: 0.5rem;
+  }
+
+  .row {
+    padding-top: 0.4rem;
+  }
+
+  #first-row {
+    padding-top: 2rem;
+  }
+}
