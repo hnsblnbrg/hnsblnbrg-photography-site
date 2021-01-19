@@ -1,7 +1,7 @@
 //Preloader.
 setTimeout(function () {
   $(".loader-background").fadeToggle();
-}, 2500);
+}, 300);
 
 window.onbeforeunload = function () {
   window.scrollTo(0, 0);
